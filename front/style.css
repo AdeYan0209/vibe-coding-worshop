@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', '微軟正黑體', Arial, sans-serif;
+  background: #f5f6fa;
+}
+
+.navbar {
+  background: #2d3e50;
+  color: #fff;
+  padding: 0.5rem 0;
+}
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+.nav-links a:hover {
+  color: #ffd700;
+}
+
+.banner {
+  /* background: linear-gradient(90deg, #4e54c8 0%, #8f94fb 100%); */
+  color: #fff;
+  text-align: center;
+  padding: 6rem 1rem 4rem 1rem;
+}
+.banner h1 {
+  margin: 0 0 1rem 0;
+  font-size: 4rem;
+  letter-spacing: 2px;
+}
+.banner p {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.banner-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  background: #fff;
+  padding: 0;
+}
+
+@media (min-width: 600px) {
+  .banner-img {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
+  }
+}
+@media (max-width: 600px) {
+  .banner {
+    padding: 2rem 0.5rem 1.5rem 0.5rem;
+  }
+  .banner-img {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+    max-width: 98%;
+  }
+}
+
+.main-content {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.card-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 2rem 1.5rem;
+  width: 220px;
+  text-align: center;
+  transition: box-shadow 0.2s;
+  flex: 0 0 220px;
+}
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.card h2 {
+  margin-top: 0;
+  color: #4e54c8;
+  font-size: 1rem;
+}
+.card p {
+  color: #555;
+  font-size: 1rem;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px 12px 0 0;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  background: #eee;
+  max-height: 180px;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .card-container {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .card {
+    width: 45%;
+    flex: 0 0 45%;
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 90%;
+    flex: 0 0 90%;
+  }
+  .banner h1 {
+    font-size: 2rem;
+  }
+  .banner p {
+    font-size: 1.1rem;
+  }
+} 

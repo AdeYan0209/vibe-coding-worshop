@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>書本資訊</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <span class="logo">PM 晚上不加班 和 Cozy Cafe 好讚喔!!</span>
+      <ul class="nav-links">
+        <li><a href="/">首頁</a></li>
+        <li><a href="/about">關於</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main class="main-content">
+    <div id="book-detail" class="book-detail"></div>
+  </main>
+  <script>
+    function getQueryParam(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+    const isbn = getQueryParam('isbn');
+    if (!isbn) {
+      document.getElementById('book-detail').innerHTML = '<p style="color:red">找不到書本 ISBN。</p>';
+    } else {
+      fetch(`http://localhost:3000/books?isbn=${isbn}`)
+        .then(res => res.json())
+        .then(book => {
+          if (!book) {
+            document.getElementById('book-detail').innerHTML = '<p style="color:red">查無此書。</p>';
+            return;
+          }
+          document.getElementById('book-detail').innerHTML = `
+            <div class="card" style="width:700px;margin:2rem auto;">
+              <img src="${book.imageUrl}" alt="${book.title}">
+              <h2>${book.title}</h2>
+              <p><strong>作者：</strong>${book.author}</p>
+              <p><strong>ISBN：</strong>${book.isbn}</p>
+              <p><strong>簡介：</strong>${book.summary || '無'}</p>
+            </div>
+          `;
+        })
+        .catch(() => {
+          document.getElementById('book-detail').innerHTML = '<p style="color:red">無法取得書本資料，請確認 API 是否啟動。</p>';
+        });
+    }
+  </script>
+</body>
+</html> 
